@@ -34,7 +34,6 @@ app.use('/api-docs', express.static('public'))
 app.use(
   cors({
     origin: [
-      'http://localhost:8080',
       'https://wap-d.com/'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
