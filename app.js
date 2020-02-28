@@ -31,7 +31,17 @@ const bodyParser = require('body-parser')
 app.set('trust proxy', 1)
 
 app.use('/api-docs', express.static('public'))
-app.use(cors())
+
+const corsOptions = {
+  origin: [
+    'https://wap-d.com/',
+    'http://localhost:8080',
+  ],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+app.use(cors(corsOptions));
+
 app.use(
   responseTime((req, res, time) => {
     console.log(req.method, req.url, Math.floor(time) + 'ms')
