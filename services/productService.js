@@ -35,7 +35,7 @@ const productService = {
       limit: pageLimit,
       // avoid counting associated data
       distinct: true,
-      order: [['createdAt', 'DESC']]
+      order: [['createdAt', 'DESC'],[Image,'id','asc']]
     })
 
     const products = productResult.rows.map(data => ({
